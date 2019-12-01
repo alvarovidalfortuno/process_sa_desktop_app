@@ -64,6 +64,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="VActualizarEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VActualizarEmp.Designer.cs">
+      <DependentUpon>VActualizarEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCrearEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCrearEmp.Designer.cs">
+      <DependentUpon>VCrearEmp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VCrearUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VCrearUsuario.Designer.cs">
+      <DependentUpon>VCrearUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VEliminarEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VEliminarEmp.Designer.cs">
+      <DependentUpon>VEliminarEmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="VistaAdmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +137,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCrearEmp.resx">
+      <DependentUpon>VCrearEmp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VCrearUsuario.resx">
+      <DependentUpon>VCrearUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAdmEmpleados.resx">
       <DependentUpon>VistaAdmEmpleados.cs</DependentUpon>

@@ -24,42 +24,10 @@ namespace PortafolioDesktop
 
         private void VistaAdmEmpleados_Load(object sender, EventArgs e)
         {
-            string uri = "http://localhost:8000/empleadoList";
+           
             try
             {
-                /*
-                //Preparing DGV Columns
-                dgwEmpleados.ColumnCount = 12;
-                dgwEmpleados.Columns[0].Name = "ID_EMPLEADO";
-                dgwEmpleados.Columns[1].Name = "SNOMBRE_EMPLEADO";
-                dgwEmpleados.Columns[2].Name = "PAPELLIDO_EMPLEADO";
-                dgwEmpleados.Columns[3].Name = "SAPELLIDO_EMPLEADO";
-                dgwEmpleados.Columns[4].Name = "EDAD_EMPLEADO";
-                dgwEmpleados.Columns[5].Name = "RUN_EMPLEADO";
-                dgwEmpleados.Columns[6].Name = "DV_EMPLEADO";
-                dgwEmpleados.Columns[7].Name = "DIRECCION";
-                dgwEmpleados.Columns[8].Name = "ID_COMUNA";
-                dgwEmpleados.Columns[9].Name = "ID_USUARIO";
-                dgwEmpleados.Columns[10].Name = "ID_AREA";
-                dgwEmpleados.Columns[11].Name = "ID_CARGO";
-
-    */
-                var webRequest = (HttpWebRequest)WebRequest.Create(uri);
-                var webResponse = (HttpWebResponse)webRequest.GetResponse();
-                if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
-                {
-                    dgwEmpleados.AutoGenerateColumns = true;
-
-                    var reader = new StreamReader(webResponse.GetResponseStream());
-                    string s = reader.ReadToEnd();
-                    var data_table = JsonConvert.DeserializeObject<Rootobject>(s);
-
-                    dgwEmpleados.DataSource = data_table.Rows;
-                }
-                else
-                {
-                    MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
-                }
+                ListarEmpleados();
             }
             catch (Exception ex)
             {
@@ -70,8 +38,84 @@ namespace PortafolioDesktop
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
+            btnVolverAdmEmpleados();
+           
+        }
+
+
+        private void btnCrearEmp_Click(object sender, EventArgs e)
+        {
+            btnCrearEmpleados();
+            
+        }
+
+        private void btnActualizarEmp_Click(object sender, EventArgs e)
+        {
+
+            btnActualizarEmpleados();
+        }
+
+        private void btnEliminarEmp_Click(object sender, EventArgs e)
+        {
+
+            btnEliminarEmpleados();
+            
+        }
+
+
+
+        #region Métodos Empleados
+        private void ListarEmpleados()
+        {
+            string uri = "http://localhost:8000/empleadoList";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+                dgwEmpleados.AutoGenerateColumns = true;
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<Rootobject>(s);
+
+                dgwEmpleados.DataSource = data_table.Rows;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+        }
+
+        #endregion
+
+        #region Métodos Botones
+        private void btnCrearEmpleados()
+        {
+            var vcrearemp = new VCrearEmp();
+            vcrearemp.ShowDialog();
             GC.Collect();
             Close();
         }
+        private void btnActualizarEmpleados()
+        {
+            var vactualizaremp = new VActualizarEmp();
+            vactualizaremp.ShowDialog();
+            GC.Collect();
+            Close();
+        }
+        private void btnEliminarEmpleados()
+        {
+            var veliminaremp = new VEliminarEmp();
+            veliminaremp.ShowDialog();
+            GC.Collect();
+            Close();
+        }
+
+        private void btnVolverAdmEmpleados()
+        {
+            GC.Collect();
+            Close();
+        }
+        #endregion
     }
 }
