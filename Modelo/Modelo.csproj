@@ -44,16 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Empleados.cs" />
-    <Compile Include="Encrypter.cs" />
+    <Compile Include="Empleados\Empleados.cs" />
+    <Compile Include="Encrypter\Encrypter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Responses\PasswordResponse.cs" />
-    <Compile Include="Roles.cs" />
-    <Compile Include="Rol_usuario.cs" />
-    <Compile Include="Usuarios.cs" />
+    <Compile Include="PasswordResponse\PasswordResponse.cs" />
+    <Compile Include="Roles\Roles.cs" />
+    <Compile Include="Rol_usuario\Rol_usuario.cs" />
+    <Compile Include="ServiceResponse\ServiceResponsecs.cs" />
+    <Compile Include="Usuarios\Usuarios.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

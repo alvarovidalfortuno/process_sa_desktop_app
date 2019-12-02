@@ -58,7 +58,7 @@ namespace PortafolioDesktop
             // 
             // btnCrearEmp
             // 
-            this.btnCrearEmp.Location = new System.Drawing.Point(73, 79);
+            this.btnCrearEmp.Location = new System.Drawing.Point(73, 277);
             this.btnCrearEmp.Name = "btnCrearEmp";
             this.btnCrearEmp.Size = new System.Drawing.Size(130, 23);
             this.btnCrearEmp.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace PortafolioDesktop
             // 
             // btnActualizarEmp
             // 
-            this.btnActualizarEmp.Location = new System.Drawing.Point(73, 156);
+            this.btnActualizarEmp.Location = new System.Drawing.Point(73, 339);
             this.btnActualizarEmp.Name = "btnActualizarEmp";
             this.btnActualizarEmp.Size = new System.Drawing.Size(130, 23);
             this.btnActualizarEmp.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace PortafolioDesktop
             // 
             // btnEliminarEmp
             // 
-            this.btnEliminarEmp.Location = new System.Drawing.Point(73, 226);
+            this.btnEliminarEmp.Location = new System.Drawing.Point(73, 399);
             this.btnEliminarEmp.Name = "btnEliminarEmp";
             this.btnEliminarEmp.Size = new System.Drawing.Size(130, 23);
             this.btnEliminarEmp.TabIndex = 4;

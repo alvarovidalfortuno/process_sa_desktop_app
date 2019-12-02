@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo
+namespace Modelo.Rol_usuario
 {
-    class Roles
+    class Rol_usuario
     {
     }
 }

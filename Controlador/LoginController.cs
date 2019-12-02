@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using Modelo;
-using Modelo.Responses;
-using Newtonsoft;
+using Modelo.PasswordResponse;
+using Modelo.Encrypter;
 using Newtonsoft.Json;
 
 namespace Controlador
 {
-   public class LoginController
+    public class LoginController
     {
 
         public Boolean Login(string usuario, string password)

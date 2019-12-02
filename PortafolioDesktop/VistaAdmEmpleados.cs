@@ -1,4 +1,4 @@
-﻿using Modelo;
+﻿using Modelo.Empleados;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -62,7 +62,10 @@ namespace PortafolioDesktop
             
         }
 
-
+        private void btnCrearUsu_Click(object sender, EventArgs e)
+        {
+            btnCrearUsuario();
+        }
 
         #region Métodos Empleados
         private void ListarEmpleados()
@@ -91,8 +94,8 @@ namespace PortafolioDesktop
         #region Métodos Botones
         private void btnCrearEmpleados()
         {
-            var vcrearemp = new VCrearEmp();
-            vcrearemp.ShowDialog();
+            var vcrearusu = new VCrearUsu();
+            vcrearusu.ShowDialog();
             GC.Collect();
             Close();
         }
@@ -111,11 +114,21 @@ namespace PortafolioDesktop
             Close();
         }
 
+        private void btnCrearUsuario() {
+           // var vcrearusuario = new VCrearUsuario();
+            //vcrearusuario.ShowDialog();
+            GC.Collect();
+            Close();
+
+
+        }
         private void btnVolverAdmEmpleados()
         {
             GC.Collect();
             Close();
         }
         #endregion
+
+       
     }
 }

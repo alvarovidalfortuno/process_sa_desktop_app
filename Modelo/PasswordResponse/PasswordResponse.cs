@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft;
 
-namespace Modelo
+namespace Modelo.PasswordResponse
 {
-    class Rol_usuario
+    
+    public class RootObject
     {
+        public string json { get; set; }
     }
 }
+
