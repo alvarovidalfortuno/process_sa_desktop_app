@@ -30,7 +30,6 @@
         {
             this.btnTerminarSesion = new System.Windows.Forms.Button();
             this.btnAdminEmp = new System.Windows.Forms.Button();
-            this.btnAdminRoles = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnTerminarSesion
@@ -53,22 +52,11 @@
             this.btnAdminEmp.UseVisualStyleBackColor = true;
             this.btnAdminEmp.Click += new System.EventHandler(this.btnAdminEmp_Click);
             // 
-            // btnAdminRoles
-            // 
-            this.btnAdminRoles.Location = new System.Drawing.Point(52, 119);
-            this.btnAdminRoles.Name = "btnAdminRoles";
-            this.btnAdminRoles.Size = new System.Drawing.Size(130, 23);
-            this.btnAdminRoles.TabIndex = 3;
-            this.btnAdminRoles.Text = "Administrar Roles";
-            this.btnAdminRoles.UseVisualStyleBackColor = true;
-            this.btnAdminRoles.Click += new System.EventHandler(this.btnAdminRoles_Click);
-            // 
             // VistaAdministrador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(245, 285);
-            this.Controls.Add(this.btnAdminRoles);
             this.Controls.Add(this.btnAdminEmp);
             this.Controls.Add(this.btnTerminarSesion);
             this.Name = "VistaAdministrador";
@@ -83,6 +71,5 @@
         private System.Windows.Forms.Button btnTerminarSesion;
        
         private System.Windows.Forms.Button btnAdminEmp;
-        private System.Windows.Forms.Button btnAdminRoles;
     }
 }

@@ -100,12 +100,6 @@
     <Compile Include="VistaAdministrador.Designer.cs">
       <DependentUpon>VistaAdministrador.cs</DependentUpon>
     </Compile>
-    <Compile Include="VistaAdmRoles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VistaAdmRoles.Designer.cs">
-      <DependentUpon>VistaAdmRoles.cs</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,11 +132,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="VActualizarEmp.resx">
+      <DependentUpon>VActualizarEmp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VCrearEmp.resx">
       <DependentUpon>VCrearEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VCrearUsu.resx">
       <DependentUpon>VCrearUsu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VEliminarEmp.resx">
+      <DependentUpon>VEliminarEmp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VistaAdmEmpleados.resx">
       <DependentUpon>VistaAdmEmpleados.cs</DependentUpon>

@@ -36,7 +36,8 @@ namespace PortafolioDesktop
         private void Btn_login_Click(object sender, RoutedEventArgs e)
         {
             var usuario = txt_usuario.Text;
-            var password = txt_password.Text;
+            //var password = txt_password.Text;
+            var password = passwordBox_usuario.Password;
             try {
                 LoginController lc = new LoginController();
                var result=lc.Login(usuario,password);
