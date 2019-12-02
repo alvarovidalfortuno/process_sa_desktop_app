@@ -12,8 +12,6 @@ namespace Controlador
 
         public Boolean Login(string usuario, string password)
         {
-
-
             const string url = "http://localhost:8000/login";
             string password_response;
             var request = WebRequest.Create(url);

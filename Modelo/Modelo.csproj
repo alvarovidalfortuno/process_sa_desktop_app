@@ -52,6 +52,7 @@
     <Compile Include="Rol_usuario\Rol_usuario.cs" />
     <Compile Include="ServiceResponse\ServiceResponsecs.cs" />
     <Compile Include="Usuarios\Usuarios.cs" />
+    <Compile Include="Validator\validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

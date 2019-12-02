@@ -52,6 +52,7 @@
             this.btnEliminarEmp.TabIndex = 1;
             this.btnEliminarEmp.Text = "Eliminar";
             this.btnEliminarEmp.UseVisualStyleBackColor = true;
+            this.btnEliminarEmp.Click += new System.EventHandler(this.btnEliminarEmp_Click);
             // 
             // txtEliminarEmp
             // 
