@@ -42,6 +42,8 @@ namespace PortafolioDesktop
 
         private void btnBuscarEmpleado()
         {
+            enable();
+
             var id_empleado = txtIdEmpleado.Text;
             EmpleadosController ec = new EmpleadosController();
             var emp = ec.buscarEmpleado(id_empleado);
@@ -57,7 +59,6 @@ namespace PortafolioDesktop
             cbArea.SelectedValue = emp.ID_AREA;
             cbCargo.Text = emp.ID_CARGO; //TODO Check other options like Text Item etc
 
-            enable();
 
             if (emp.ID_EMPLEADO==null) {
 
