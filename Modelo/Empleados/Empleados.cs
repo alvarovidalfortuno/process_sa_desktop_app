@@ -22,6 +22,7 @@ namespace Modelo.Empleados
         public string ID_USUARIO { get; set; }
         public string ID_AREA { get; set; }
         public string ID_CARGO { get; set; }
+        public object[][] response { get; set; }
     }
 
     public class Row
@@ -39,6 +40,14 @@ namespace Modelo.Empleados
         public string ID_AREA { get; set; }
         public string ID_CARGO { get; set; }
     }
+
+
+
+
+
+
+
+
 }
 
 

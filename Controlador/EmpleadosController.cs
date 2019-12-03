@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo.Empleados;
+
 using Newtonsoft.Json;
 
 namespace Controlador
@@ -138,8 +139,11 @@ namespace Controlador
 
 
             {
-                string uri = "http://localhost:8000/empleadoList/"+ ID_EMPLEADO; //Agregar nuevo método con parametro en la uri
+                string uri = "http://localhost:8000/empleadoBuscar?id_empleado=" + ID_EMPLEADO;
+                Console.WriteLine(uri);
+                //Agregar nuevo método con parametro en la uri
                 var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+                webRequest.Method = WebRequestMethods.Http.Get;
                 var webResponse = (HttpWebResponse)webRequest.GetResponse();
                 if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
                 {

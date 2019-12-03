@@ -36,8 +36,9 @@ namespace PortafolioDesktop
 
         private void btnAdminRoles_Click(object sender, EventArgs e)
         {
+            /*
             var vistaAdmRoles = new VistaAdmRoles();
-            vistaAdmRoles.ShowDialog();
+            vistaAdmRoles.ShowDialog();*/
         }
     }
 }
