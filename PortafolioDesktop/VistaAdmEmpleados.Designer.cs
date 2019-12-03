@@ -40,7 +40,7 @@ namespace PortafolioDesktop
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(1134, 503);
+            this.btnVolver.Location = new System.Drawing.Point(102, 506);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 0;
@@ -51,14 +51,14 @@ namespace PortafolioDesktop
             // dgwEmpleados
             // 
             this.dgwEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwEmpleados.Location = new System.Drawing.Point(499, 49);
+            this.dgwEmpleados.Location = new System.Drawing.Point(263, 51);
             this.dgwEmpleados.Name = "dgwEmpleados";
             this.dgwEmpleados.Size = new System.Drawing.Size(739, 421);
             this.dgwEmpleados.TabIndex = 1;
             // 
             // btnCrearEmp
             // 
-            this.btnCrearEmp.Location = new System.Drawing.Point(73, 277);
+            this.btnCrearEmp.Location = new System.Drawing.Point(60, 51);
             this.btnCrearEmp.Name = "btnCrearEmp";
             this.btnCrearEmp.Size = new System.Drawing.Size(130, 23);
             this.btnCrearEmp.TabIndex = 2;
@@ -68,7 +68,7 @@ namespace PortafolioDesktop
             // 
             // btnActualizarEmp
             // 
-            this.btnActualizarEmp.Location = new System.Drawing.Point(73, 339);
+            this.btnActualizarEmp.Location = new System.Drawing.Point(60, 113);
             this.btnActualizarEmp.Name = "btnActualizarEmp";
             this.btnActualizarEmp.Size = new System.Drawing.Size(130, 23);
             this.btnActualizarEmp.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace PortafolioDesktop
             // 
             // btnEliminarEmp
             // 
-            this.btnEliminarEmp.Location = new System.Drawing.Point(73, 399);
+            this.btnEliminarEmp.Location = new System.Drawing.Point(60, 173);
             this.btnEliminarEmp.Name = "btnEliminarEmp";
             this.btnEliminarEmp.Size = new System.Drawing.Size(130, 23);
             this.btnEliminarEmp.TabIndex = 4;
@@ -88,7 +88,7 @@ namespace PortafolioDesktop
             // 
             // VistaAdmEmpleados
             // 
-            this.ClientSize = new System.Drawing.Size(1263, 557);
+            this.ClientSize = new System.Drawing.Size(1087, 557);
             this.Controls.Add(this.btnEliminarEmp);
             this.Controls.Add(this.btnActualizarEmp);
             this.Controls.Add(this.btnCrearEmp);

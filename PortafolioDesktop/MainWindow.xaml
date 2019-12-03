@@ -17,7 +17,6 @@
 
         <Button x:Name="btn_login" Content="Login" HorizontalAlignment="Left" Margin="180,297,0,0" VerticalAlignment="Top" Width="75" Click="Btn_login_Click"/>
         <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="180,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
-        <TextBox x:Name="txt_password" HorizontalAlignment="Left" Height="23" Margin="423,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206"/>
         <Button x:Name="btn_salir" Content="Salir" HorizontalAlignment="Left" Margin="180,322,0,0" VerticalAlignment="Top" Width="75" Click="Btn_salir_Click"/>
         <PasswordBox x:Name="passwordBox_usuario" HorizontalAlignment="Left" Margin="180,261,0,0" VerticalAlignment="Top" Width="206" Height="23"/>
 
