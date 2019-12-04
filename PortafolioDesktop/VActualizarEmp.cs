@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Modelo.BuscarEmpleadoResponse2;
 using Modelo.Empleados;
+using Newtonsoft.Json;
 
 namespace PortafolioDesktop
 {
@@ -56,9 +59,9 @@ namespace PortafolioDesktop
              txtRun_empleado.Text = emp.RUN_EMPLEADO;
              txtDv_empleado.Text = emp.DV_EMPLEADO;
              txtDireccion.Text = emp.DIRECCION;
-             cbUsuario.SelectedValue = emp.ID_USUARIO;
-             cbComuna.SelectedValue = emp.ID_COMUNA;
-             cbArea.SelectedValue = emp.ID_AREA;
+             cbUsuario.Text = emp.ID_USUARIO;
+             cbComuna.Text = emp.ID_COMUNA;
+             cbArea.Text = emp.ID_AREA;
              cbCargo.Text = emp.ID_CARGO; //TODO Check other options like Text Item etc
 
 
@@ -166,6 +169,27 @@ namespace PortafolioDesktop
 
         }
 
+        private void loadComboUsuario() {
+
+            string uri = "http://localhost:8000/empleadoList";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<Empleados>(s);
+
+               // dgwEmpleados.DataSource = data_table.Rows;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+
+
+        }
         #endregion
 
         
