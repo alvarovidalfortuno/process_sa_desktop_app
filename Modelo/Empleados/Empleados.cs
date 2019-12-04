@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Modelo.Empleados
 {
 
-    public class Rootobject
+    public class Empleados
     {
         public Row[] Rows { get; set; }
         public string ID_EMPLEADO { get; set; }
@@ -22,7 +22,6 @@ namespace Modelo.Empleados
         public string ID_USUARIO { get; set; }
         public string ID_AREA { get; set; }
         public string ID_CARGO { get; set; }
-        public object[][] response { get; set; }
     }
 
     public class Row

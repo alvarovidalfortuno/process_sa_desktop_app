@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarEmpleadoResponse2\BuscarEmpleadoResponse2.cs" />
     <Compile Include="BuscarEmpleadoResponse\BuscarEmpleadoResponse.cs" />
     <Compile Include="Empleados\Empleados.cs" />
     <Compile Include="Encrypter\Encrypter.cs" />

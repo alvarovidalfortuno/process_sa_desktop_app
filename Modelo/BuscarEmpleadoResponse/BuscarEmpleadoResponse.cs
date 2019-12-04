@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Modelo.BuscarEmpleadoResponse
 {
 
-    public class Rootobject
+    public class BuscarEmpResp
     {
         public bool ok { get; set; }
         public Result[] result { get; set; }

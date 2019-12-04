@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+using Modelo.BuscarEmpleadoResponse2;
 using Modelo.Empleados;
 
 namespace PortafolioDesktop
@@ -46,26 +47,27 @@ namespace PortafolioDesktop
 
             var id_empleado = txtIdEmpleado.Text;
             EmpleadosController ec = new EmpleadosController();
-            var emp = ec.buscarEmpleado(id_empleado);
-            txtSnombre_empleado.Text = emp.SNOMBRE_EMPLEADO;
-            txtPapellido_empleado.Text = emp.PAPELLIDO_EMPLEADO;
-            txtSapeliido_empleado.Text = emp.SAPELLIDO_EMPLEADO;
-            txtEdad_empleado.Text = emp.EDAD_EMPLEADO;
-            txtRun_empleado.Text = emp.RUN_EMPLEADO;
-            txtDv_empleado.Text = emp.DV_EMPLEADO;
-            txtDireccion.Text = emp.DIRECCION;
-            cbUsuario.SelectedValue = emp.ID_USUARIO;
-            cbComuna.SelectedValue = emp.ID_COMUNA;
-            cbArea.SelectedValue = emp.ID_AREA;
-            cbCargo.Text = emp.ID_CARGO; //TODO Check other options like Text Item etc
+            Empleados emp = ec.buscarEmpleado(id_empleado);
+
+             txtSnombre_empleado.Text = emp.SNOMBRE_EMPLEADO;
+             txtPapellido_empleado.Text = emp.PAPELLIDO_EMPLEADO;
+             txtSapeliido_empleado.Text = emp.SAPELLIDO_EMPLEADO;
+             txtEdad_empleado.Text = emp.EDAD_EMPLEADO;
+             txtRun_empleado.Text = emp.RUN_EMPLEADO;
+             txtDv_empleado.Text = emp.DV_EMPLEADO;
+             txtDireccion.Text = emp.DIRECCION;
+             cbUsuario.SelectedValue = emp.ID_USUARIO;
+             cbComuna.SelectedValue = emp.ID_COMUNA;
+             cbArea.SelectedValue = emp.ID_AREA;
+             cbCargo.Text = emp.ID_CARGO; //TODO Check other options like Text Item etc
 
 
-            if (emp.ID_EMPLEADO==null) {
+             if (emp.ID_EMPLEADO==null) {
 
-                MessageBox.Show("El empleado no existe");
-            
-            }
-            
+                 MessageBox.Show("El empleado no existe");
+             
+        }
+
         }
 
         private void btnActualizarEmpleado() {

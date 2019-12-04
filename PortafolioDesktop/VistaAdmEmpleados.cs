@@ -79,7 +79,7 @@ namespace PortafolioDesktop
 
                 var reader = new StreamReader(webResponse.GetResponseStream());
                 string s = reader.ReadToEnd();
-                var data_table = JsonConvert.DeserializeObject<Rootobject>(s);
+                var data_table = JsonConvert.DeserializeObject<Empleados>(s);
 
                 dgwEmpleados.DataSource = data_table.Rows;
             }
