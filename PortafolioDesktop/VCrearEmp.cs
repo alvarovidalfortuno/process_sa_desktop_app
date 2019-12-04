@@ -31,9 +31,140 @@ namespace PortafolioDesktop
             btnVolver();
 
         }
-        
+
 
         #region Métodos Botones
+
+        public bool validarRut(string rut)
+        {
+
+            bool validacion = false;
+            try
+            {
+                rut = rut.ToUpper();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return validacion;
+        }
+
+        private bool validarCampos() {
+
+            bool isValid;
+            //Validar campo Snombre
+            if (!(txtSnombre_empleado.Text.Length>0)) 
+            {
+                MessageBox.Show("Ingrese Nombre");
+                isValid = false;
+                return isValid;
+            
+            }
+            if (!(txtPapellido_empleado.Text.Length > 0)) {
+
+                MessageBox.Show("Ingrese Apellido Paterno");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtSapeliido_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Apellido Materno");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtEdad_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Edad");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtRun_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Rut");
+
+                isValid = false;
+                return isValid;
+            }
+            else {
+
+
+               // validarRut();
+            
+            
+            
+            }
+            if (!(txtDv_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Dígito Verificador");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtDireccion.Text.Length > 0))
+            {
+
+                MessageBox.Show("Ingrese Dirección");
+
+                isValid = false;
+                return isValid;
+            }
+            if (cbComuna.SelectedIndex == 0) {
+
+                MessageBox.Show("Seleccione Comuna");
+
+                isValid = false;
+                return isValid;
+
+            }
+            if (cbUsuario.SelectedIndex == 0) {
+
+                MessageBox.Show("Seleccione Usuario");
+
+                isValid = false;
+                return isValid;
+            }
+            if (cbArea.SelectedIndex == 0) {
+
+                MessageBox.Show("Seleccione Área");
+
+                isValid = false;
+                return isValid;
+
+            }
+            if (cbCargo.SelectedIndex == 0) {
+
+                MessageBox.Show("Seleccione Cargo");
+
+                isValid = false;
+                return isValid;
+            }
+
+          
+
+
+            isValid = true;
+
+            return isValid;
+        
+        }
 
         private void btnCrearEmpleado() {
 
