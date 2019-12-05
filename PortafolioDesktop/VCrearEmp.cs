@@ -26,15 +26,15 @@ namespace PortafolioDesktop
             cargarUsuarios();
             cargarCargos();
             cargarAreas();
-            //TODO hacer un bind a dato de usuarios recien creado
         }
 
         
 
         private void btnCrearEmpleado_Click(object sender, EventArgs e)
         {
-            btnCrearEmpleado();
+            ejecutarCrearEmp();
         }
+
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
@@ -43,7 +43,16 @@ namespace PortafolioDesktop
         }
 
         #region Métodos UI
+        private void ejecutarCrearEmp()
+        {
+            var isOK = validarCampos();
+            if (isOK)
+            {
 
+                btnCrearEmpleado();
+
+            }
+        }
         private void cargarComunas()
         {
            

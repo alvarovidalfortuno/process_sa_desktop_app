@@ -157,6 +157,7 @@
             this.btnAtras.TabIndex = 73;
             this.btnAtras.Text = "Atras";
             this.btnAtras.UseVisualStyleBackColor = true;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click_1);
             // 
             // btnActualizarEmp
             // 

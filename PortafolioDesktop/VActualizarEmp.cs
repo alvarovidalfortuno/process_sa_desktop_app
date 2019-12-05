@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
 using Modelo.BuscarEmpleadoResponse2;
+using Modelo.cargarComboBox;
 using Modelo.Empleados;
 using Newtonsoft.Json;
 
@@ -21,29 +22,37 @@ namespace PortafolioDesktop
         public VActualizarEmp()
         {
             InitializeComponent();
+            cargarComunas();
+            cargarUsuarios();
+            cargarCargos();
+            cargarAreas();
             disable();
         }
 
-
+        #region Botones
         private void btnActualizarEmp_Click(object sender, EventArgs e)
         {
-            btnActualizarEmpleado();
+            //REVISAR
         }
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
+            //REVISAR
+        }
+        private void btnAtras_Click_1(object sender, EventArgs e)
+        {
             btnVolver();
         }
-
         private void btnBuscarEmp_Click(object sender, EventArgs e)
         {
-            btnBuscarEmpleado();
+            ejecutarBuscarEmp();
         }
 
         private void btnActualizarEmp_Click_1(object sender, EventArgs e)
         {
-            btnActualizarEmpleado();
+            ejecutarActualizarEmp();
         }
+        #endregion
 
         #region Métodos Botones
 
@@ -118,7 +127,200 @@ namespace PortafolioDesktop
             Close();
         }
 
-        private void disable() {
+
+        #endregion
+
+        #region Métodos UI
+
+        private void ejecutarBuscarEmp() {
+            var isOK = validarIDEmpleado();
+            if (isOK)
+            {
+
+                btnBuscarEmpleado();
+
+            }
+        }
+
+        private void ejecutarActualizarEmp()
+        {
+            var isOK = validarCampos();
+            if (isOK)
+            {
+
+                btnActualizarEmpleado();
+
+            }
+        }
+
+        public bool validarIDEmpleado() {
+            bool isValid;
+            int result;
+            if (!(txtIdEmpleado.Text.Length > 0)) {
+                MessageBox.Show("El campo ID Empleado debe tener un valor");
+                isValid = false;
+                return isValid;
+            
+            }
+            if (!(int.TryParse(txtIdEmpleado.Text,out result))) {
+
+                MessageBox.Show("El valor ingresado como ID empleado debe ser numérico");
+                isValid = false;
+                return isValid;
+
+            }
+
+            isValid = true;
+
+            return isValid;
+        }
+        public bool validarRut(string rut)
+        {
+
+            bool validacion = false;
+            try
+            {
+                rut = rut.ToUpper();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return validacion;
+        }
+
+        private bool validarCampos()
+        {
+
+            bool isValid;
+            //Validar campo Snombre
+            if (!(txtSnombre_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Nombre");
+                isValid = false;
+                return isValid;
+
+            }
+            if (!(txtPapellido_empleado.Text.Length > 0))
+            {
+
+                MessageBox.Show("Ingrese Apellido Paterno");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtSapeliido_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Apellido Materno");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtEdad_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Edad");
+
+                isValid = false;
+                return isValid;
+            }
+            if (!(txtRun_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Rut");
+
+                isValid = false;
+                return isValid;
+            }
+
+            if (!(txtDv_empleado.Text.Length > 0))
+            {
+                MessageBox.Show("Ingrese Dígito Verificador");
+
+                isValid = false;
+                return isValid;
+            }
+            else
+            {
+                var rut = txtRun_empleado.Text + txtDv_empleado.Text;
+
+                var isRutValid = validarRut(rut);
+                if (!isRutValid)
+                {
+
+                    MessageBox.Show("El rut ingresado no es válido");
+
+
+                }
+
+
+            }
+            if (!(txtDireccion.Text.Length > 0))
+            {
+
+                MessageBox.Show("Ingrese Dirección");
+
+                isValid = false;
+                return isValid;
+            }
+            if (cbComuna.SelectedIndex == 0)
+            {
+
+                MessageBox.Show("Seleccione Comuna");
+
+                isValid = false;
+                return isValid;
+
+            }
+            if (cbUsuario.SelectedIndex == 0)
+            {
+
+                MessageBox.Show("Seleccione Usuario");
+
+                isValid = false;
+                return isValid;
+            }
+            if (cbArea.SelectedIndex == 0)
+            {
+
+                MessageBox.Show("Seleccione Área");
+
+                isValid = false;
+                return isValid;
+
+            }
+            if (cbCargo.SelectedIndex == 0)
+            {
+
+                MessageBox.Show("Seleccione Cargo");
+
+                isValid = false;
+                return isValid;
+            }
+
+
+
+
+            isValid = true;
+
+            return isValid;
+
+        }
+
+        private void disable()
+        {
 
             txtSnombre_empleado.Enabled = false;
             txtPapellido_empleado.Enabled = false;
@@ -131,8 +333,8 @@ namespace PortafolioDesktop
             cbComuna.Enabled = false;
             cbCargo.Enabled = false;
             cbArea.Enabled = false;
-        
-        
+
+
         }
 
         private void enable()
@@ -152,8 +354,9 @@ namespace PortafolioDesktop
 
 
         }
-        //TODO agregar método al terminar correctamente de actualizar
-        private void clean() {
+
+        private void clean()
+        {
 
             txtSnombre_empleado.Text = string.Empty;
             txtPapellido_empleado.Text = string.Empty;
@@ -164,26 +367,31 @@ namespace PortafolioDesktop
             txtDireccion.Text = string.Empty;
             cbComuna.Enabled = false;
             cbUsuario.Enabled = false;
-            cbArea.SelectedValue =false;
+            cbArea.SelectedValue = false;
             cbCargo.SelectedValue = false;
 
 
 
         }
 
-        private void loadComboUsuario() {
+        private void cargarComunas()
+        {
 
-            string uri = "http://localhost:8000/empleadoList";
+            string uri = "http://localhost:8000/comboComuna";
             var webRequest = (HttpWebRequest)WebRequest.Create(uri);
             var webResponse = (HttpWebResponse)webRequest.GetResponse();
             if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
             {
 
+
                 var reader = new StreamReader(webResponse.GetResponseStream());
                 string s = reader.ReadToEnd();
-                var data_table = JsonConvert.DeserializeObject<Empleados>(s);
+                var data_table = JsonConvert.DeserializeObject<CargarComuna>(s);
 
-               // dgwEmpleados.DataSource = data_table.Rows;
+                cbComuna.DataSource = data_table.Rows;
+                cbComuna.DisplayMember = "NOMBRE_COMUNA";
+                cbComuna.ValueMember = "ID_COMUNA";
+
             }
             else
             {
@@ -191,11 +399,84 @@ namespace PortafolioDesktop
             }
 
 
-        }
+        }//OK
+
+        private void cargarAreas()
+        {
+            string uri = "http://localhost:8000/comboArea";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarArea>(s);
+
+                cbArea.DataSource = data_table.Rows;
+                cbArea.DisplayMember = "NOMBRE_AREA";
+                cbArea.ValueMember = "ID_AREA";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+        }//OK
+
+        private void cargarCargos()
+        {
+            string uri = "http://localhost:8000/comboCargo";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarCargo>(s);
+
+                cbCargo.DataSource = data_table.Rows;
+                cbCargo.DisplayMember = "NOMBRE_CARGO";
+                cbCargo.ValueMember = "ID_CARGO";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+
+        }//OK
+
+        private void cargarUsuarios()
+        {
+            string uri = "http://localhost:8000/comboUsuario";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarUsuario>(s);
+
+                cbUsuario.DataSource = data_table.Rows;
+                cbUsuario.DisplayMember = "CORREO_USUARIO";
+                cbUsuario.ValueMember = "ID_USUARIO";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+        }//OK
 
 
         #endregion
 
-       
+      
     }
 }

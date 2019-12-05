@@ -20,7 +20,7 @@ namespace PortafolioDesktop
 
         private void btnEliminarEmp_Click(object sender, EventArgs e)
         {
-            btnEliminarEmpleados();
+            ejecutarEliminarEmp();
         }
 
         #region Métodos Botones
@@ -39,6 +39,46 @@ namespace PortafolioDesktop
 
         }
 
+
+        #endregion
+
+        #region Métodos UI
+
+        private void ejecutarEliminarEmp()
+        {
+            var isOK = validarIDEmpleado();
+            if (isOK)
+            {
+
+                btnEliminarEmpleados();
+
+            }
+        }
+
+        public bool validarIDEmpleado()
+        {
+            bool isValid;
+            int result;
+            if (!(txtEliminarEmp.Text.Length > 0))
+            {
+                MessageBox.Show("El campo ID Empleado debe tener un valor");
+                isValid = false;
+                return isValid;
+
+            }
+            if (!(int.TryParse(txtEliminarEmp.Text, out result)))
+            {
+
+                MessageBox.Show("El valor ingresado como ID empleado debe ser numérico");
+                isValid = false;
+                return isValid;
+
+            }
+
+            isValid = true;
+
+            return isValid;
+        }
 
         #endregion
 
