@@ -109,7 +109,7 @@
             this.cbComuna.FormattingEnabled = true;
             this.cbComuna.Location = new System.Drawing.Point(435, 79);
             this.cbComuna.Name = "cbComuna";
-            this.cbComuna.Size = new System.Drawing.Size(121, 21);
+            this.cbComuna.Size = new System.Drawing.Size(184, 21);
             this.cbComuna.TabIndex = 7;
             // 
             // cbArea
@@ -117,7 +117,7 @@
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(435, 167);
             this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(121, 21);
+            this.cbArea.Size = new System.Drawing.Size(184, 21);
             this.cbArea.TabIndex = 8;
             // 
             // cbUsuario
@@ -126,7 +126,7 @@
             this.cbUsuario.FormattingEnabled = true;
             this.cbUsuario.Location = new System.Drawing.Point(435, 122);
             this.cbUsuario.Name = "cbUsuario";
-            this.cbUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cbUsuario.Size = new System.Drawing.Size(184, 21);
             this.cbUsuario.TabIndex = 9;
             // 
             // label1
@@ -234,7 +234,7 @@
             this.cbCargo.FormattingEnabled = true;
             this.cbCargo.Location = new System.Drawing.Point(435, 209);
             this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(121, 21);
+            this.cbCargo.Size = new System.Drawing.Size(184, 21);
             this.cbCargo.TabIndex = 21;
             // 
             // label12

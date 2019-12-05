@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using Controlador;
+using Modelo.cargarComboBox;
 using Modelo.ServiceResponse;
 using Newtonsoft.Json;
 
@@ -18,8 +22,14 @@ namespace PortafolioDesktop
         public VCrearEmp()
         {
             InitializeComponent();
+            cargarComunas();
+            cargarUsuarios();
+            cargarCargos();
+            cargarAreas();
             //TODO hacer un bind a dato de usuarios recien creado
         }
+
+        
 
         private void btnCrearEmpleado_Click(object sender, EventArgs e)
         {
@@ -32,6 +42,109 @@ namespace PortafolioDesktop
 
         }
 
+        #region Métodos UI
+
+        private void cargarComunas()
+        {
+           
+                string uri = "http://localhost:8000/comboComuna";
+                var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+                var webResponse = (HttpWebResponse)webRequest.GetResponse();
+                if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+                {
+                   
+
+                    var reader = new StreamReader(webResponse.GetResponseStream());
+                    string s = reader.ReadToEnd();
+                    var data_table = JsonConvert.DeserializeObject<CargarComuna>(s);
+
+                cbComuna.DataSource = data_table.Rows;
+                cbComuna.DisplayMember = "NOMBRE_COMUNA";
+                cbComuna.ValueMember = "ID_COMUNA";
+
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+                }
+            
+
+        }//OK
+
+        private void cargarAreas()
+        {
+            string uri = "http://localhost:8000/comboArea";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarArea>(s);
+
+                cbArea.DataSource = data_table.Rows;
+                cbArea.DisplayMember = "NOMBRE_AREA";
+                cbArea.ValueMember = "ID_AREA";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+        }//OK
+
+        private void cargarCargos()
+        {
+            string uri = "http://localhost:8000/comboCargo";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarCargo>(s);
+
+                cbCargo.DataSource = data_table.Rows;
+                cbCargo.DisplayMember = "NOMBRE_CARGO";
+                cbCargo.ValueMember = "ID_CARGO";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+
+        }//OK
+
+        private void cargarUsuarios()
+        {
+            string uri = "http://localhost:8000/comboUsuario";
+            var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+            var webResponse = (HttpWebResponse)webRequest.GetResponse();
+            if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+            {
+
+
+                var reader = new StreamReader(webResponse.GetResponseStream());
+                string s = reader.ReadToEnd();
+                var data_table = JsonConvert.DeserializeObject<CargarUsuario>(s);
+
+                cbUsuario.DataSource = data_table.Rows;
+                cbUsuario.DisplayMember = "CORREO_USUARIO";
+                cbUsuario.ValueMember = "ID_USUARIO";
+
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Status code == {0}", webResponse.StatusCode));
+            }
+        }//OK
+
+        #endregion
 
         #region Métodos Botones
 
@@ -103,20 +216,27 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-            else {
-
-
-               // validarRut();
-            
-            
-            
-            }
+           
             if (!(txtDv_empleado.Text.Length > 0))
             {
                 MessageBox.Show("Ingrese Dígito Verificador");
 
                 isValid = false;
                 return isValid;
+            }
+            else
+            {
+                var rut = txtRun_empleado.Text + txtDv_empleado.Text;
+
+                var isRutValid = validarRut(rut);
+                if (!isRutValid) {
+
+                    MessageBox.Show("El rut ingresado no es válido");
+
+
+                }
+
+
             }
             if (!(txtDireccion.Text.Length > 0))
             {

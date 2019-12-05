@@ -46,6 +46,10 @@
   <ItemGroup>
     <Compile Include="BuscarEmpleadoResponse2\BuscarEmpleadoResponse2.cs" />
     <Compile Include="BuscarEmpleadoResponse\BuscarEmpleadoResponse.cs" />
+    <Compile Include="cargarComboBox\CargarArea.cs" />
+    <Compile Include="cargarComboBox\CargarCargo.cs" />
+    <Compile Include="cargarComboBox\CargarComuna.cs" />
+    <Compile Include="cargarComboBox\CargarUsuario.cs" />
     <Compile Include="Empleados\Empleados.cs" />
     <Compile Include="Encrypter\Encrypter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

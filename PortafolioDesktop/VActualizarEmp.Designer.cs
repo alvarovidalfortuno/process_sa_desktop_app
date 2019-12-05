@@ -167,6 +167,7 @@
             this.btnActualizarEmp.TabIndex = 72;
             this.btnActualizarEmp.Text = "Actualizar";
             this.btnActualizarEmp.UseVisualStyleBackColor = true;
+            this.btnActualizarEmp.Click += new System.EventHandler(this.btnActualizarEmp_Click_1);
             // 
             // label12
             // 

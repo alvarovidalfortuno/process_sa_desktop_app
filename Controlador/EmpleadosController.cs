@@ -49,7 +49,7 @@ namespace Controlador
 
             var empJson = JsonConvert.SerializeObject(emp);
 
-            const string url = "http://localhost:8000/usuarioCreate";
+            const string url = "http://localhost:8000/empleadoCreate";
             var request = WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
             request.Method = WebRequestMethods.Http.Post;
@@ -189,14 +189,14 @@ namespace Controlador
 
 
 
-        }
+        }//OK
 
 
         public string eliminarEmpleado(string ID_EMPLEADO) {
 
             var response = "";
 
-            string url = "http://localhost:8000/usuarioUpdate" + ID_EMPLEADO; //TODO Actualizar URL
+            string url = "http://localhost:8000/empleadoDelete" + ID_EMPLEADO; //TODO Actualizar URL
             var request = WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
             request.Method = WebRequestMethods.Http.Put;

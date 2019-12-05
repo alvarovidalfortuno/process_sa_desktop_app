@@ -40,7 +40,10 @@ namespace PortafolioDesktop
             btnBuscarEmpleado();
         }
 
-
+        private void btnActualizarEmp_Click_1(object sender, EventArgs e)
+        {
+            btnActualizarEmpleado();
+        }
 
         #region Métodos Botones
 
@@ -149,7 +152,6 @@ namespace PortafolioDesktop
 
 
         }
-
         //TODO agregar método al terminar correctamente de actualizar
         private void clean() {
 
@@ -190,8 +192,10 @@ namespace PortafolioDesktop
 
 
         }
+
+
         #endregion
 
-        
+       
     }
 }
