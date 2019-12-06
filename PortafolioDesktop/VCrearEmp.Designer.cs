@@ -122,7 +122,6 @@
             // 
             // cbUsuario
             // 
-            this.cbUsuario.Enabled = false;
             this.cbUsuario.FormattingEnabled = true;
             this.cbUsuario.Location = new System.Drawing.Point(435, 122);
             this.cbUsuario.Name = "cbUsuario";

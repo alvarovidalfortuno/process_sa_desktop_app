@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo.BorrarEmpleadoResponse;
 using Modelo.BuscarEmpleadoResponse;
 using Modelo.BuscarEmpleadoResponse2;
 using Modelo.Empleados;
@@ -58,7 +59,7 @@ namespace Controlador
 
             using (var stream_writer = new StreamWriter(request.GetRequestStream()))
             {
-
+                Console.WriteLine("empJson: "+empJson);
                 stream_writer.Write(empJson);
                 stream_writer.Flush();
             }
@@ -96,6 +97,7 @@ namespace Controlador
             // Creando Json para método POST Actualizar
 
             Empleados emp = new Empleados();
+            emp.ID_EMPLEADO = ID_EMPLEADO;
             emp.SNOMBRE_EMPLEADO = SNOMBRE_EMPLEADO;
             emp.PAPELLIDO_EMPLEADO = PAPELLIDO_EMPLEADO;
             emp.SAPELLIDO_EMPLEADO = SAPELLIDO_EMPLEADO;
@@ -110,10 +112,10 @@ namespace Controlador
 
             var empJson = JsonConvert.SerializeObject(emp);
 
-            string url = "http://localhost:8000/usuarioUpdate"+ ID_EMPLEADO;
+            string url = "http://localhost:8000/empleadoUpdate";
             var request = WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
-            request.Method = WebRequestMethods.Http.Post;
+            request.Method = WebRequestMethods.Http.Put;
             //Stream newStream = request.GetRequestStream();
             //var response = (HttpWebResponse)request.GetResponse();
 
@@ -196,15 +198,22 @@ namespace Controlador
 
             var response = "";
 
-            string url = "http://localhost:8000/empleadoDelete" + ID_EMPLEADO; //TODO Actualizar URL
+            BorrarEmpleadoResponse bemp = new BorrarEmpleadoResponse();
+            bemp.id_empleado = ID_EMPLEADO;
+
+            var idempJson = JsonConvert.SerializeObject(bemp);
+
+            string url = "http://localhost:8000/empleadoDelete"; //TODO Actualizar URL
             var request = WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
             request.Method = WebRequestMethods.Http.Put;
 
             using (var stream_writer = new StreamWriter(request.GetRequestStream())) 
             {
-            
-                //<????>
+                stream_writer.Write(idempJson);
+                stream_writer.Flush();
+
+
             }
             var httpResponse = (HttpWebResponse)request.GetResponse();
             using (var stream_reader = new StreamReader(httpResponse.GetResponseStream()))

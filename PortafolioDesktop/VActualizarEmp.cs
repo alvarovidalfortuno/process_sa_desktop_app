@@ -71,10 +71,10 @@ namespace PortafolioDesktop
              txtRun_empleado.Text = emp.RUN_EMPLEADO;
              txtDv_empleado.Text = emp.DV_EMPLEADO;
              txtDireccion.Text = emp.DIRECCION;
-             cbUsuario.Text = emp.ID_USUARIO;
-             cbComuna.Text = emp.ID_COMUNA;
-             cbArea.Text = emp.ID_AREA;
-             cbCargo.Text = emp.ID_CARGO; //TODO Check other options like Text Item etc
+             cbUsuario.SelectedValue  = int.Parse(emp.ID_USUARIO);
+             cbComuna.SelectedValue = int.Parse(emp.ID_COMUNA);
+             cbArea.SelectedValue = int.Parse(emp.ID_AREA);
+             cbCargo.SelectedValue = int.Parse(emp.ID_CARGO); //TODO Check other options like Text Item etc
 
 
              if (emp.ID_EMPLEADO==null) {
@@ -174,6 +174,7 @@ namespace PortafolioDesktop
 
             return isValid;
         }
+
         public bool validarRut(string rut)
         {
 
@@ -275,40 +276,40 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-            if (cbComuna.SelectedIndex == 0)
-            {
+            /*if (cbComuna.SelectedIndex == 0)
+           {
 
-                MessageBox.Show("Seleccione Comuna");
+               MessageBox.Show("Seleccione Comuna");
 
-                isValid = false;
-                return isValid;
+               isValid = false;
+               return isValid;
 
-            }
-            if (cbUsuario.SelectedIndex == 0)
-            {
+           }
+          if (cbUsuario.SelectedIndex == 0)
+           {
 
-                MessageBox.Show("Seleccione Usuario");
+               MessageBox.Show("Seleccione Usuario");
 
-                isValid = false;
-                return isValid;
-            }
-            if (cbArea.SelectedIndex == 0)
-            {
+               isValid = false;
+               return isValid;
+           }
+           if (cbArea.SelectedIndex == 0)
+           {
 
-                MessageBox.Show("Seleccione Área");
+               MessageBox.Show("Seleccione Área");
 
-                isValid = false;
-                return isValid;
+               isValid = false;
+               return isValid;
 
-            }
-            if (cbCargo.SelectedIndex == 0)
-            {
+           }
+           if (cbCargo.SelectedIndex == 0)
+           {
 
-                MessageBox.Show("Seleccione Cargo");
+               MessageBox.Show("Seleccione Cargo");
 
-                isValid = false;
-                return isValid;
-            }
+               isValid = false;
+               return isValid;
+           }*/
 
 
 

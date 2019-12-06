@@ -53,6 +53,7 @@ namespace PortafolioDesktop
 
             }
         }
+
         private void cargarComunas()
         {
            
@@ -255,36 +256,36 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-            if (cbComuna.SelectedIndex == 0) {
+           /* if (cbComuna.SelectedIndex == 0) {
 
                 MessageBox.Show("Seleccione Comuna");
 
                 isValid = false;
                 return isValid;
 
-            }
-            if (cbUsuario.SelectedIndex == 0) {
+            }*/
+            /*if (cbUsuario.SelectedIndex == 0) {
 
                 MessageBox.Show("Seleccione Usuario");
 
                 isValid = false;
                 return isValid;
-            }
-            if (cbArea.SelectedIndex == 0) {
+            }*/
+            /*if (cbArea.SelectedIndex == 0) {
 
                 MessageBox.Show("Seleccione Área");
 
                 isValid = false;
                 return isValid;
 
-            }
-            if (cbCargo.SelectedIndex == 0) {
+            }*/
+           /* if (cbCargo.SelectedIndex == 0) {
 
                 MessageBox.Show("Seleccione Cargo");
 
                 isValid = false;
                 return isValid;
-            }
+            }*/
 
           
 
@@ -304,11 +305,11 @@ namespace PortafolioDesktop
             string RUN_EMPLEADO =txtRun_empleado.Text;
             string DV_EMPLEADO = txtDv_empleado.Text;
             string DIRECCION = txtDireccion.Text;
-            string ID_COMUNA = cbComuna.SelectedIndex.ToString();
-            string ID_USUARIO = cbUsuario.SelectedIndex.ToString();
-            string ID_AREA = cbArea.SelectedIndex.ToString();
-            string ID_CARGO = cbCargo.SelectedIndex.ToString();
-
+            string ID_COMUNA = cbComuna.SelectedValue.ToString();
+            string ID_USUARIO = cbUsuario.SelectedValue.ToString();
+            string ID_AREA = cbArea.SelectedValue.ToString();
+            string ID_CARGO = cbCargo.SelectedValue.ToString();
+            
 
             EmpleadosController empc = new EmpleadosController();
             var response = empc.crearEmpleado(

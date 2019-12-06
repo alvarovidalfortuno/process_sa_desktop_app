@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrarEmpleadoResponse\BorrarEmpleadoResponse.cs" />
     <Compile Include="BuscarEmpleadoResponse2\BuscarEmpleadoResponse2.cs" />
     <Compile Include="BuscarEmpleadoResponse\BuscarEmpleadoResponse.cs" />
     <Compile Include="cargarComboBox\CargarArea.cs" />
