@@ -105,7 +105,7 @@ namespace PortafolioDesktop
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo crear, Por favor revise los datos ingresados");
+                    MessageBox.Show("No se pudo crear, El nombre de usuarios ya existe");
                 }
             }
 

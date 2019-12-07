@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Modelo.ListarEmpleadosResponse;
 
 namespace PortafolioDesktop
 {
@@ -79,9 +80,19 @@ namespace PortafolioDesktop
 
                 var reader = new StreamReader(webResponse.GetResponseStream());
                 string s = reader.ReadToEnd();
-                var data_table = JsonConvert.DeserializeObject<Empleados>(s);
+                var data_table = JsonConvert.DeserializeObject<ListarEmpleadosResponse>(s);
 
                 dgwEmpleados.DataSource = data_table.Rows;
+                if (data_table.Rows == null)
+                {
+
+                    btnActualizarEmp.Enabled = false;
+                }
+                else {
+                    btnActualizarEmp.Enabled = true;
+
+
+                }
             }
             else
             {
@@ -115,8 +126,7 @@ namespace PortafolioDesktop
         }
 
         private void btnCrearUsuario() {
-           // var vcrearusuario = new VCrearUsuario();
-            //vcrearusuario.ShowDialog();
+           
             GC.Collect();
             Close();
 

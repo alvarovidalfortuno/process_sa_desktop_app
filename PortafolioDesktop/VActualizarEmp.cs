@@ -61,8 +61,16 @@ namespace PortafolioDesktop
             enable();
 
             var id_empleado = txtIdEmpleado.Text;
+
             EmpleadosController ec = new EmpleadosController();
             Empleados emp = ec.buscarEmpleado(id_empleado);
+            //Validando resultados vacios
+            if (emp.ID_USUARIO == null) {
+
+                MessageBox.Show("No existe el empleado: " + id_empleado);
+                return;
+            } 
+
 
              txtSnombre_empleado.Text = emp.SNOMBRE_EMPLEADO;
              txtPapellido_empleado.Text = emp.PAPELLIDO_EMPLEADO;
@@ -238,6 +246,25 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
+            else {
+
+                if (!(int.TryParse(txtEdad_empleado.Text, out int resultado))) {
+
+                    MessageBox.Show("Ingrese sólo numeros en edad");
+                    isValid = false;
+                    return isValid;
+                }
+                else { if (!(int.Parse(txtEdad_empleado.Text)>17 )|| !(int.Parse(txtEdad_empleado.Text)<100)) {
+                        MessageBox.Show("Ingrese una edad entre 18 y 99 años");
+                        isValid = false;
+                        return isValid;
+
+
+                    } }
+                
+            }
+
+
             if (!(txtRun_empleado.Text.Length > 0))
             {
                 MessageBox.Show("Ingrese Rut");

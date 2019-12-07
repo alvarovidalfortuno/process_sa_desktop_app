@@ -219,6 +219,29 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
+            else
+            {
+
+                if (!(int.TryParse(txtEdad_empleado.Text, out int resultado)))
+                {
+
+                    MessageBox.Show("Ingrese sólo numeros en edad");
+                    isValid = false;
+                    return isValid;
+                }
+                else
+                {
+                    if (!(int.Parse(txtEdad_empleado.Text) > 17) || !(int.Parse(txtEdad_empleado.Text) < 100))
+                    {
+                        MessageBox.Show("Ingrese una edad entre 18 y 99 años");
+                        isValid = false;
+                        return isValid;
+
+
+                    }
+                }
+
+            }
             if (!(txtRun_empleado.Text.Length > 0))
             {
                 MessageBox.Show("Ingrese Rut");
@@ -331,6 +354,8 @@ namespace PortafolioDesktop
             {
 
                 MessageBox.Show("Empleado Creado Correctamente");
+                GC.Collect();
+                Close();
                 
             }
             else
