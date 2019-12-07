@@ -4,6 +4,7 @@ using System.Net;
 using Modelo.PasswordResponse;
 using Modelo.Encrypter;
 using Newtonsoft.Json;
+using Modelo.Empleados;
 
 namespace Controlador
 {
@@ -49,8 +50,19 @@ namespace Controlador
 
             if (password_encriptado == password_IN_cleaned) {
 
-                return true;
-                
+                EmpleadosController ec = new EmpleadosController();
+                UsuariosController uc = new UsuariosController();
+                var usu = uc.buscarUsuario(usuario);
+                Empleados emp = ec.buscarEmpleadoIdUsuario(usu.id_usuario);
+                var cargo_empleado = int.Parse(emp.ID_CARGO);
+                if (cargo_empleado == 1)
+                {
+
+                    return true;
+                }
+                else { return false; }
+
+
             }
 
             return false;

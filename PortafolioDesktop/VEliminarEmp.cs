@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Controlador;
+using Modelo.ServiceResponse;
+using Newtonsoft.Json;
 
 namespace PortafolioDesktop
 {
@@ -31,12 +33,25 @@ namespace PortafolioDesktop
             var id_empleado = txtEliminarEmp.Text;
 
             EmpleadosController ec = new EmpleadosController();
-            var response = ec.eliminarEmpleado(id_empleado);
+            var jsonResponse = ec.eliminarEmpleado(id_empleado);
 
             txtEliminarEmp.Text = string.Empty;
 
-            MessageBox.Show(response);
+            var response = JsonConvert.DeserializeObject<Rootobject>(jsonResponse);
 
+            if (response.ok == true)
+            {
+                MessageBox.Show("El Empleado " + id_empleado + " ha sido eliminado");
+                GC.Collect();
+                Close();
+
+            }
+            else {
+
+                MessageBox.Show("El Empleado " + id_empleado + " No existe");
+
+            }
+            
         }
 
 

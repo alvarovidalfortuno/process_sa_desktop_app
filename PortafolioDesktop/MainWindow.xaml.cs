@@ -67,7 +67,7 @@ namespace PortafolioDesktop
                     }
                     else {
 
-                        System.Windows.Forms.MessageBox.Show("Credenciales Inválidas","Alert",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        System.Windows.Forms.MessageBox.Show("Credenciales Inválidas, o Rol sin privilegios de ADMINISTRADOR","Alert",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     }
 
 

@@ -193,6 +193,60 @@ namespace Controlador
 
         }//OK
 
+        public Empleados buscarEmpleadoIdUsuario(string id_usuario)
+        {
+
+
+            {
+                string uri = "http://localhost:8000/empleadoBuscarIdUsuario?id_usuario=" + id_usuario;
+                Console.WriteLine(uri);
+                //Agregar nuevo método con parametro en la uri
+                var webRequest = (HttpWebRequest)WebRequest.Create(uri);
+                webRequest.Method = WebRequestMethods.Http.Get;
+                var webResponse = (HttpWebResponse)webRequest.GetResponse();
+                if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
+                {
+                    Empleados response = new Empleados();
+                    var reader = new StreamReader(webResponse.GetResponseStream());
+                    string s = reader.ReadToEnd();
+                    var responseArray = JsonConvert.DeserializeObject<BuscarEmpleadoResponse2>(s);
+
+                    for (int i = 0; i < responseArray.response.Length; i++)
+                    {
+                        response.ID_EMPLEADO = responseArray.response[i].ID_EMPLEADO.ToString();
+                        response.SNOMBRE_EMPLEADO = responseArray.response[i].SNOMBRE_EMPLEADO;
+                        response.PAPELLIDO_EMPLEADO = responseArray.response[i].PAPELLIDO_EMPLEADO;
+                        response.SAPELLIDO_EMPLEADO = responseArray.response[i].SAPELLIDO_EMPLEADO;
+                        response.EDAD_EMPLEADO = responseArray.response[i].EDAD_EMPLEADO.ToString();
+                        response.RUN_EMPLEADO = responseArray.response[i].RUN_EMPLEADO.ToString();
+                        response.DV_EMPLEADO = responseArray.response[i].DV_EMPLEADO;
+                        response.DIRECCION = responseArray.response[i].DIRECCION;
+                        response.ID_COMUNA = responseArray.response[i].ID_COMUNA.ToString();
+                        response.ID_USUARIO = responseArray.response[i].ID_USUARIO.ToString();
+                        response.ID_AREA = responseArray.response[i].ID_AREA.ToString();
+                        response.ID_CARGO = responseArray.response[i].ID_CARGO.ToString();
+
+                    }
+
+
+
+
+                    return response;
+
+                }
+                else
+                {
+                    Empleados responseDummy = new Empleados();
+                    return responseDummy;
+                }
+            }
+
+
+
+
+
+
+        }//OK
 
         public string eliminarEmpleado(string ID_EMPLEADO) {
 

@@ -249,7 +249,20 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-           
+            else
+            {
+                if (!(int.TryParse(txtRun_empleado.Text, out int result)))
+                {
+
+
+                    MessageBox.Show("El Valor de un rut debe ser sólo numérico");
+
+                    isValid = false;
+                    return isValid;
+
+                }
+
+            }
             if (!(txtDv_empleado.Text.Length > 0))
             {
                 MessageBox.Show("Ingrese Dígito Verificador");
@@ -265,7 +278,8 @@ namespace PortafolioDesktop
                 if (!isRutValid) {
 
                     MessageBox.Show("El rut ingresado no es válido");
-
+                    isValid = false;
+                    return isValid;
 
                 }
 
@@ -279,39 +293,7 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-           /* if (cbComuna.SelectedIndex == 0) {
-
-                MessageBox.Show("Seleccione Comuna");
-
-                isValid = false;
-                return isValid;
-
-            }*/
-            /*if (cbUsuario.SelectedIndex == 0) {
-
-                MessageBox.Show("Seleccione Usuario");
-
-                isValid = false;
-                return isValid;
-            }*/
-            /*if (cbArea.SelectedIndex == 0) {
-
-                MessageBox.Show("Seleccione Área");
-
-                isValid = false;
-                return isValid;
-
-            }*/
-           /* if (cbCargo.SelectedIndex == 0) {
-
-                MessageBox.Show("Seleccione Cargo");
-
-                isValid = false;
-                return isValid;
-            }*/
-
-          
-
+        
 
             isValid = true;
 

@@ -14,6 +14,7 @@ namespace Modelo.ListarEmpleadosResponse
 
     public class Row
     {
+        public string ID_EMPLEADO { get; set; }
         public string SNOMBRE_EMPLEADO { get; set; }
         public string PAPELLIDO_EMPLEADO { get; set; }
         public string SAPELLIDO_EMPLEADO { get; set; }

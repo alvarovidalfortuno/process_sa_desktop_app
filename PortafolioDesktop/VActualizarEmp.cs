@@ -13,6 +13,7 @@ using Controlador;
 using Modelo.BuscarEmpleadoResponse2;
 using Modelo.cargarComboBox;
 using Modelo.Empleados;
+using Modelo.ServiceResponse;
 using Newtonsoft.Json;
 
 namespace PortafolioDesktop
@@ -83,7 +84,7 @@ namespace PortafolioDesktop
              cbComuna.SelectedValue = int.Parse(emp.ID_COMUNA);
              cbArea.SelectedValue = int.Parse(emp.ID_AREA);
              cbCargo.SelectedValue = int.Parse(emp.ID_CARGO); //TODO Check other options like Text Item etc
-
+             cbUsuario.Enabled = false;
 
              if (emp.ID_EMPLEADO==null) {
 
@@ -109,7 +110,7 @@ namespace PortafolioDesktop
             string ID_CARGO = cbCargo.SelectedValue.ToString();
 
             EmpleadosController ec = new EmpleadosController();
-            var response =ec.actualizarEmpleado(
+            var jsonResponse =ec.actualizarEmpleado(
                                                 ID_EMPLEADO, 
                                                 SNOMBRE_EMPLEADO, 
                                                 PAPELLIDO_EMPLEADO, 
@@ -125,9 +126,22 @@ namespace PortafolioDesktop
                                                 );
             
 
-                MessageBox.Show(response);
-            
-            
+
+            var response = JsonConvert.DeserializeObject<Rootobject>(jsonResponse);
+            if (response.ok == true)
+            {
+
+
+                MessageBox.Show("Usuarios actualizado correctamente");
+
+            }
+            else {
+
+                MessageBox.Show("Usuarios no ha sido actualizado");
+
+
+            }
+
         }
 
         private void btnVolver() {
@@ -272,6 +286,19 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
+            else {
+                if (!(int.TryParse(txtRun_empleado.Text, out int result))) {
+
+
+                    MessageBox.Show("El Valor de un rut debe ser sólo numérico");
+
+                    isValid = false;
+                    return isValid;
+                    
+                }
+                
+            }
+
 
             if (!(txtDv_empleado.Text.Length > 0))
             {
@@ -289,7 +316,8 @@ namespace PortafolioDesktop
                 {
 
                     MessageBox.Show("El rut ingresado no es válido");
-
+                    isValid = false;
+                    return isValid;
 
                 }
 
@@ -303,40 +331,7 @@ namespace PortafolioDesktop
                 isValid = false;
                 return isValid;
             }
-            /*if (cbComuna.SelectedIndex == 0)
-           {
-
-               MessageBox.Show("Seleccione Comuna");
-
-               isValid = false;
-               return isValid;
-
-           }
-          if (cbUsuario.SelectedIndex == 0)
-           {
-
-               MessageBox.Show("Seleccione Usuario");
-
-               isValid = false;
-               return isValid;
-           }
-           if (cbArea.SelectedIndex == 0)
-           {
-
-               MessageBox.Show("Seleccione Área");
-
-               isValid = false;
-               return isValid;
-
-           }
-           if (cbCargo.SelectedIndex == 0)
-           {
-
-               MessageBox.Show("Seleccione Cargo");
-
-               isValid = false;
-               return isValid;
-           }*/
+           
 
 
 
@@ -480,7 +475,7 @@ namespace PortafolioDesktop
 
         private void cargarUsuarios()
         {
-            string uri = "http://localhost:8000/comboUsuario";
+            string uri = "http://localhost:8000/comboUsuarioActualizar";
             var webRequest = (HttpWebRequest)WebRequest.Create(uri);
             var webResponse = (HttpWebResponse)webRequest.GetResponse();
             if ((webResponse.StatusCode == HttpStatusCode.OK) && (webResponse.ContentLength > 0))
