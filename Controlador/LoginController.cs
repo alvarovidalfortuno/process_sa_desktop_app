@@ -42,7 +42,7 @@ namespace Controlador
 
             //Limpiando password proveniente del Response
             var password_IN = deserializedJson.json;
-            var auxString1 = password_IN.Replace("[{\"CONTRASE�A_USUARIO\":", "");
+            var auxString1 = password_IN.Replace("[{\"CONTRASEÑA_USUARIO\":", "");
             var auxString2 = auxString1.Replace("}]", "");
             var auxString3 = auxString2.Replace("\"","");
             var password_IN_cleaned = auxString3;
