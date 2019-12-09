@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortafolioDesktop", "PortafolioDesktop\PortafolioDesktop.csproj", "{CB138F48-591F-43AB-9FCC-53A249FE836E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTester", "LogicTester\LogicTester.csproj", "{D006DE64-B06B-44D1-B450-FAF5430C374E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelo", "Modelo\Modelo.csproj", "{A61554C8-49A9-4721-A77E-B4DC8D5B52A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controlador", "Controlador\Controlador.csproj", "{AB1772DF-3595-4A85-8073-30ACFC2EB4BB}"
@@ -21,10 +19,6 @@ Global
 		{CB138F48-591F-43AB-9FCC-53A249FE836E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB138F48-591F-43AB-9FCC-53A249FE836E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB138F48-591F-43AB-9FCC-53A249FE836E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D006DE64-B06B-44D1-B450-FAF5430C374E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D006DE64-B06B-44D1-B450-FAF5430C374E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D006DE64-B06B-44D1-B450-FAF5430C374E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D006DE64-B06B-44D1-B450-FAF5430C374E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A61554C8-49A9-4721-A77E-B4DC8D5B52A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A61554C8-49A9-4721-A77E-B4DC8D5B52A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A61554C8-49A9-4721-A77E-B4DC8D5B52A8}.Release|Any CPU.ActiveCfg = Release|Any CPU

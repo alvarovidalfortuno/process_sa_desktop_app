@@ -11,7 +11,7 @@ namespace Modelo.Usuarios
     {
         public string id_usuario { get; set; }
         public string correo_usuario { get; set; }
-        public string contrasea_usuario { get; set; }
+        public string password { get; set; }
     }
 
 }

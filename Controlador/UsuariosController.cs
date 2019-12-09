@@ -26,7 +26,7 @@ namespace Controlador
             var response = "";
             Usuarios usuarioJson = new Usuarios();
                 usuarioJson.correo_usuario = correo_usuario;
-                usuarioJson.contrasea_usuario = passwordEncriptado;
+                usuarioJson.password = passwordEncriptado;
 
             var json_send = JsonConvert.SerializeObject(usuarioJson);
 
@@ -61,7 +61,7 @@ namespace Controlador
             var response = "";
             Usuarios usuarioJson = new Usuarios();
             usuarioJson.correo_usuario = correo_usuario;
-            usuarioJson.contrasea_usuario = password;
+            usuarioJson.password = password;
 
             var json_send = JsonConvert.SerializeObject(usuarioJson);
 
@@ -115,7 +115,7 @@ namespace Controlador
                         {
                             response.id_usuario = responseArray.Rows[i].ID_USUARIO.ToString();
                             response.correo_usuario = responseArray.Rows[i].CORREO_USUARIO;
-                            response.contrasea_usuario = responseArray.Rows[i].CONTRASEA_USUARIO;
+                            response.password = responseArray.Rows[i].CONTRASEA_USUARIO;
                             
 
                         }
